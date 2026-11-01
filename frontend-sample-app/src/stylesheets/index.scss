@@ -356,3 +356,60 @@ body {
   border-radius: 6px;
   margin-bottom: 24px;
 }
+.btn-tab, .btn-subtab {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-tab.active, .btn-subtab.active {
+  background-color: #0056b3;
+  color: #fff;
+  border-color: #0056b3;
+}
+
+.option-box.disabled {
+  opacity: 0.6;
+}
+
+.btn-day {
+  padding: 6px 14px;
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+  transition: all 0.2s ease;
+}
+
+.btn-day:hover {
+  background-color: #e9ecef;
+}
+
+.btn-day.active {
+  background-color: #ffc107;
+  color: #000;
+  border-color: #ffc107;
+}
+
+.no-options {
+  color: #6c757d;
+  font-style: italic;
+  padding: 20px 0;
+}
+.navbar__logo-badge {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__logo-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}

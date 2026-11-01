@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, NavLink, Link } from 'react-router-dom'
 import HomePage from '../pages/home_page'
 import ReservasPage from '../pages/reservas_page'
 import TalleresPage from '../pages/talleres_page'
+
 import TallerDetallePage from '../pages/talleres_det' 
 import usm from '../assets/usm.png'
 
