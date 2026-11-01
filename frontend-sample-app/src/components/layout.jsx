@@ -5,6 +5,7 @@ import HomePage from '../pages/home_page'
 import ReservasPage from '../pages/reservas_page'
 import TalleresPage from '../pages/talleres_page'
 import TallerDetallePage from '../pages/talleres_det' 
+import usm from '../assets/usm.png'
 
 export const Layout = () => {
   return (
@@ -12,8 +13,17 @@ export const Layout = () => {
       <div className='layout'>
         <header className='navbar'>
           <Link to='/' className='navbar__logo-link'>
-            <div className='navbar__logo'>
-              <span className='navbar__logo-badge'>poner logo de la u, no lo descargue</span>
+            <div className='navbar__logo' style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <img 
+                src={usm} 
+                alt="Logo USM" 
+                style={{ 
+                  height: '48px', 
+                  width: 'auto', 
+                  objectFit: 'contain', 
+                  display: 'block' 
+                }} 
+              />
               <div className='navbar__logo-text'>
                 <strong>UNIVERSIDAD TÉCNICA</strong>
                 <span>FEDERICO SANTA MARÍA</span>
@@ -45,7 +55,6 @@ export const Layout = () => {
             <Route path='/' element={<HomePage />} />
             <Route path='/reservas' element={<ReservasPage />} />
             <Route path='/talleres' element={<TalleresPage />} />
-            {/* 2. Agregar la ruta dinámica para el detalle de cada taller */}
             <Route path='/talleres/:id' element={<TallerDetallePage />} />
           </Routes>
         </main>

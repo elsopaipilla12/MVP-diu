@@ -1,10 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-// 1. IMPORTA TU IMAGEN DIRECTAMENTE AQUÍ
 import imgReservas from '../assets/msc.jpg'
-// Si agregas otra imagen para talleres, impórtala así:
-// import imgTalleres from '../assets/otra-imagen.jpg'
+import imgTalleres from '../assets/karate.jpg'
 
 export const HomePage = () => {
   return (
@@ -26,11 +24,15 @@ export const HomePage = () => {
       {/* Tarjetas centrales */}
       <section className='home__cards-container'>
         
-        {/* TARJETA RESERVAS: Aplicamos la imagen importada con style */}
+        {/* TARJETA RESERVAS */}
         <Link 
           to='/reservas' 
           className='feature-card'
-          style={{ backgroundImage: `url(${imgReservas})` }}
+          style={{ 
+            backgroundImage: `url(${imgReservas})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
         >
           <div className='feature-card__overlay'>
             <div className='feature-card__content'>
@@ -42,12 +44,15 @@ export const HomePage = () => {
           </div>
         </Link>
 
-        {/* TARJETA TALLERES: Aplica el mismo método cuando tengas su imagen */}
+        {/* TARJETA TALLERES */}
         <Link 
           to='/talleres' 
           className='feature-card'
-          /* Descomenta la línea de abajo cuando tengas imgTalleres */
-          /* style={{ backgroundImage: `url(${imgTalleres})` }} */
+          style={{ 
+            backgroundImage: `url(${imgTalleres})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
         >
           <div className='feature-card__overlay'>
             <div className='feature-card__content'>
