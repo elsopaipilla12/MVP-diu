@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react'
 import { OPCIONES_RESERVA, BLOQUES_HORARIOS } from '../data/talleres'
+import ReservasGimnasio from './reservas_gimnasio'
 
 const DIAS_SEMANA = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
 
@@ -98,36 +99,79 @@ export const ReservasPage = () => {
         </div>
       )}
 
-      {seleccionada && (
-        <div className='alert-success'>
-          Has seleccionado reservar: <strong>{seleccionada.nombre}</strong> — {seleccionada.dia ? `${seleccionada.dia} ` : ''}({seleccionada.horario}).
-        </div>
+      {categoriaSel === 'pesas' ? (
+        <ReservasGimnasio opciones={opcionesParaMostrar} />
+      ) : (
+        <>
+          {seleccionada && (
+            <div className='alert-success'>
+              Has seleccionado reservar: {seleccionada.nombre} - {seleccionada.horario}
+            </div>
+          )}
+
+          <div className='options-grid'>
+            {opcionesParaMostrar.map((item) => {
+              const sinCupos = item.cupos === 0
+
+              return (
+                <div
+                  key={item.id}
+                  className={`option-box ${sinCupos ? 'disabled' : ''}`}
+                >
+                  <h3>{item.nombre}</h3>
+
+                  {item.dia && (
+                    <p>
+                      <strong>Día:</strong> {item.dia}
+                    </p>
+                  )}
+
+                  <p>
+                    <strong>Bloque:</strong> {item.horario}
+                  </p>
+
+                  <p>
+                    <strong>Cupos disponibles:</strong> {item.cupos}
+                  </p>
+
+                  <button
+                    className='btn-primary'
+                    disabled={sinCupos}
+                    onClick={() => setSeleccionada(item)}
+                  >
+                    {sinCupos ? 'Sin Cupos' : 'Seleccionar Reserva'}
+                  </button>
+                </div>
+              )
+            })}
+          </div>
+        </>
       )}
 
-      {/* Grid con TODOS los 10 bloques del día */}
-      <div className='options-grid'>
-        {opcionesParaMostrar.map((item) => {
-          const sinCupos = item.cupos === 0
+            {/* Grid con TODOS los 10 bloques del día */}
+            <div className='options-grid'>
+              {opcionesParaMostrar.map((item) => {
+                const sinCupos = item.cupos === 0
 
-          return (
-            <div key={item.id} className={`option-box ${sinCupos ? 'disabled' : ''}`}>
-              <h3>{item.nombre}</h3>
-              {item.dia && <p><strong>Día:</strong> {item.dia}</p>}
-              <p><strong>Bloque:</strong> {item.horario}</p>
-              <p><strong>Cupos disponibles:</strong> {item.cupos}</p>
-              <button 
-                className='btn-primary'
-                disabled={sinCupos}
-                onClick={() => setSeleccionada(item)}
-              >
-                {sinCupos ? 'Sin Cupos' : 'Seleccionar Reserva'}
-              </button>
+                return (
+                  <div key={item.id} className={`option-box ${sinCupos ? 'disabled' : ''}`}>
+                    <h3>{item.nombre}</h3>
+                    {item.dia && <p><strong>Día:</strong> {item.dia}</p>}
+                    <p><strong>Bloque:</strong> {item.horario}</p>
+                    <p><strong>Cupos disponibles:</strong> {item.cupos}</p>
+                    <button 
+                      className='btn-primary'
+                      disabled={sinCupos}
+                      onClick={() => setSeleccionada(item)}
+                    >
+                      {sinCupos ? 'Sin Cupos' : 'Seleccionar Reserva'}
+                    </button>
+                  </div>
+                )
+              })}
             </div>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
+          </div>
+        )
+      }
 
 export default ReservasPage

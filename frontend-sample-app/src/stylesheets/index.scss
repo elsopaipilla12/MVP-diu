@@ -413,3 +413,93 @@ body {
   width: auto;
   object-fit: contain;
 }
+
+/* --- FLUJO DE RESERVA DEL GIMNASIO --- */
+
+.gym-reservation {
+  margin-top: 24px;
+  margin-bottom: 60px;
+}
+
+.gym-reservation__intro {
+  margin-bottom: 24px;
+
+  h2 {
+    font-size: 23px;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+  }
+
+  p {
+    color: #666;
+    line-height: 1.6;
+  }
+}
+
+.gym-reservation__panel {
+  max-width: 720px;
+  margin: 20px auto;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+
+  h2 {
+    margin-bottom: 12px;
+  }
+
+  > p {
+    color: #666;
+    margin-bottom: 20px;
+  }
+}
+
+.gym-reservation__summary {
+  margin: 20px 0;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+
+  p {
+    margin: 8px 0;
+  }
+}
+
+.gym-reservation__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-secondary {
+  padding: 10px 16px;
+  color: #004b85;
+  background: #fff;
+  border: 1px solid #004b85;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background: #eef4fa;
+  }
+}
+
+.gym-reservation__panel--success {
+  border-top: 4px solid #34a853;
+}
+
+@media (max-width: 600px) {
+  .gym-reservation__panel {
+    padding: 20px;
+  }
+
+  .gym-reservation__actions {
+    flex-direction: column;
+  }
+
+  .gym-reservation__actions button {
+    width: 100%;
+  }
+}
