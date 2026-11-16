@@ -8,8 +8,9 @@
     "url": "https://github.com/alexarenasf/frontend-sample-app"
   },
   "scripts": {
-    "prod": "webpack --mode=production",
-    "dev": "webpack serve --mode=development"
+    "dev": "webpack serve --mode=development",
+    "build": "webpack --mode=production",
+    "prod": "webpack --mode=production"
   },
   "author": "alexarenasf",
   "license": "MIT",

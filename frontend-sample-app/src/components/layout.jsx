@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route, NavLink, Link } from 'react-router-dom'
+import {HashRouter,Routes,Route,NavLink,Link} from 'react-router-dom'
 
 import HomePage from '../pages/home_page'
 import ReservasPage from '../pages/reservas_page'
@@ -10,7 +10,7 @@ import usm from '../assets/usm.png'
 
 export const Layout = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className='layout'>
         <header className='navbar'>
           <Link to='/' className='navbar__logo-link'>
@@ -60,7 +60,7 @@ export const Layout = () => {
           </Routes>
         </main>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 

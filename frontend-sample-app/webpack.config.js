@@ -1,12 +1,15 @@
 /* eslint-disable max-lines-per-function */
+const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = (_, argv) => ({
   entry: './src/index.js',
   output: {
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
-    publicPath: '/'
+    publicPath: './',
+    clean: true
   },
   plugins: [
     new MiniCssExtractPlugin({
